@@ -18,7 +18,6 @@
         <module>com-protocol</module>
         <module>com-tools-provider</module>
         <module>com-tools-provider</module>
-        <module>com-api</module>
     </modules>
 
     <properties>
