@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.macro.common.entity.mapper.TbUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.macro.common.entity.entity.TbUser">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="head" property="head" />
+        <result column="sex" property="sex" />
+        <result column="point" property="point" />
+        <result column="phone" property="phone" />
+        <result column="password" property="password" />
+        <result column="openid_wx" property="openidWx" />
+        <result column="unionid" property="unionid" />
+        <result column="comment" property="comment" />
+        <result column="status" property="status" />
+        <result column="logins" property="logins" />
+        <result column="login_time" property="loginTime" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, head, sex, point, phone, password, openid_wx, unionid, comment, status, logins, login_time, create_time
+    </sql>
+
+    <!-- 测试 -->
+    <select id="test">
+
+    </select>
+
+</mapper>
