@@ -17,7 +17,8 @@
         <module>com-common</module>
         <module>com-protocol</module>
         <module>com-tools-provider</module>
-        <module>com-tools-provider</module>
+        <module>com-register-center</module>
+        <module>com-gateway</module>
     </modules>
 
     <properties>

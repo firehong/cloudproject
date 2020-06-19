@@ -1,0 +1,35 @@
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: eurekaServer
+  security:
+    basic:
+      enabled: true # 启用身份认证
+    user:   # 认证账户密码
+      name: admin
+      password: admin
+
+## 根目录
+server:
+  servlet:
+    context-path: /eureka
+
+#注册中心eureka
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false # 该实例是否向 Eureka  Server注册自己
+    fetch-registry: false # 该实例是否向 Eureka 服务器获取所有的注册信息表
+    eureka-server-u-r-l-context: http://${eureka.instance.hostname}:${server.port}/eureka/  # 配置 Eureka-Server 地址
+  server:
+    enable-self-preservation: true  #开启Eureka的自我保护机制
+    #eviction-interval-timer-in-ms: 5000 #清理无效节点的时间间隔
+
+# 日志配置
+logging:
+  level:
+    root: info
+  config: classpath:logback-spring.xml

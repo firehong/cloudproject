@@ -6,24 +6,31 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="com-protocol" />
+        <module name="eureka-server" />
+        <module name="com-gateway" />
         <module name="com-common" />
-        <module name="com-tools-service" />
         <module name="com-tools-api" />
+        <module name="com-tools-service" />
+        <module name="com-protocol" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="com-api" target="1.8" />
       <module name="com-tools-provider" target="1.8" />
+      <module name="nacos-server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="com-api" options="-parameters" />
       <module name="com-common" options="-parameters" />
+      <module name="com-gateway" options="-parameters" />
       <module name="com-protocol" options="-parameters" />
+      <module name="com-register-center" options="" />
       <module name="com-tools-api" options="-parameters" />
       <module name="com-tools-service" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="nacos-server" options="-parameters" />
     </option>
   </component>
 </project>
