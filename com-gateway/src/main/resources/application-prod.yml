@@ -1,0 +1,29 @@
+server:
+  port: 8000
+
+#注册中心注册
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@127.0.0.1:9700/eureka/eureka/
+
+spring:
+  redis:
+    sentinel:
+      master:
+      nodes:
+    password:
+    lettuce:
+      shutdown-timeout: 100ms #超时时间
+      pool:
+        max-active: 20
+        min-idle: 0
+        max-idle: 10
+        max-wait: 100ms
+  cloud:
+    gateway:   #gateway网关配置
+      enabled: true  #开启网关配置
+      discovery:
+        locator:
+          enabled: true  #开启服务注册与发现功能
+          lower-case-service-id: true  #忽略服务名大小写
