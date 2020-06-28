@@ -50,9 +50,9 @@ spring:
       # 连接保持空闲而不被驱逐的最小时间
       min-evictable-idle-time-millis: 1800000
   redis:
-    cluster:
-      nodes: 132.232.148.214:6379
     password: hongda2019@
+    host: 132.232.148.214
+    port: 6379
     lettuce:
       shutdown-timeout: 100ms #超时时间
       pool:
@@ -61,6 +61,7 @@ spring:
         max-idle: 10
         max-wait: 100ms
     timeout: 30000
+
   servlet:
     multipart:
       max-file-size: 50MB  # 文件上传大小限制

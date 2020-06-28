@@ -10,6 +10,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/com-api/pom.xml" />
+        <option value="$PROJECT_DIR$/com-boot-admin/pom.xml" />
         <option value="$PROJECT_DIR$/com-register-center/nacos-server/pom.xml" />
         <option value="$PROJECT_DIR$/com-tools-api/pom.xml" />
         <option value="$PROJECT_DIR$/com-tools-provider/pom.xml" />

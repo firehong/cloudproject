@@ -9,10 +9,11 @@
         <module name="eureka-server" />
         <module name="com-gateway" />
         <module name="com-user-service" />
-        <module name="com-job-center" />
+        <module name="com-boot-admin" />
+        <module name="com-tools-service" />
         <module name="com-common" />
         <module name="com-tools-api" />
-        <module name="com-tools-service" />
+        <module name="com-job-center" />
         <module name="com-user-api" />
         <module name="com-protocol" />
       </profile>
@@ -26,9 +27,11 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="com-api" options="-parameters" />
+      <module name="com-boot-admin" options="-parameters" />
       <module name="com-common" options="-parameters" />
       <module name="com-gateway" options="-parameters" />
       <module name="com-job-center" options="-parameters" />
+      <module name="com-monitor" options="" />
       <module name="com-protocol" options="-parameters" />
       <module name="com-register-center" options="" />
       <module name="com-tools-api" options="-parameters" />
