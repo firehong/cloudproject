@@ -4,6 +4,8 @@
     <file url="file://$PROJECT_DIR$/com-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com-job-center/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com-job-center/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-protocol/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-protocol/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-register-center/eureka-server/src/main/java" charset="UTF-8" />
@@ -12,5 +14,8 @@
     <file url="file://$PROJECT_DIR$/com-tools-provider/com-tools-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-tools-provider/com-tools-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-tools-provider/com-tools-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com-user/com-user-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com-user/com-user-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com-user/com-user-service/src/main/resources" charset="UTF-8" />
   </component>
 </project>

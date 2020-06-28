@@ -8,9 +8,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="eureka-server" />
         <module name="com-gateway" />
+        <module name="com-user-service" />
+        <module name="com-job-center" />
         <module name="com-common" />
         <module name="com-tools-api" />
         <module name="com-tools-service" />
+        <module name="com-user-api" />
         <module name="com-protocol" />
       </profile>
     </annotationProcessing>
@@ -25,10 +28,13 @@
       <module name="com-api" options="-parameters" />
       <module name="com-common" options="-parameters" />
       <module name="com-gateway" options="-parameters" />
+      <module name="com-job-center" options="-parameters" />
       <module name="com-protocol" options="-parameters" />
       <module name="com-register-center" options="" />
       <module name="com-tools-api" options="-parameters" />
       <module name="com-tools-service" options="-parameters" />
+      <module name="com-user-api" options="-parameters" />
+      <module name="com-user-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="nacos-server" options="-parameters" />
     </option>

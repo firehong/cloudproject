@@ -19,6 +19,8 @@
         <module>com-tools-provider</module>
         <module>com-register-center</module>
         <module>com-gateway</module>
+        <module>com-user</module>
+        <module>com-job-center</module>
     </modules>
 
     <properties>
