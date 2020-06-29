@@ -22,6 +22,7 @@
         <module>com-user</module>
         <module>com-job-center</module>
         <module>com-monitor</module>
+        <module>com-auth-center</module>
     </modules>
 
     <properties>
