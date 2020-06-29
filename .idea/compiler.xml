@@ -9,11 +9,11 @@
         <module name="eureka-server" />
         <module name="com-gateway" />
         <module name="com-user-service" />
+        <module name="com-job-center" />
         <module name="com-boot-admin" />
-        <module name="com-tools-service" />
         <module name="com-common" />
         <module name="com-tools-api" />
-        <module name="com-job-center" />
+        <module name="com-tools-service" />
         <module name="com-user-api" />
         <module name="com-protocol" />
       </profile>

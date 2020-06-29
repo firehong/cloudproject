@@ -50,18 +50,18 @@ spring:
       # 连接保持空闲而不被驱逐的最小时间
       min-evictable-idle-time-millis: 1800000
   redis:
+    sentinel:
+      master: mymaster
+      nodes: 132.232.148.214:26379,132.232.148.214:26380,132.232.148.214:26381
     password: hongda2019@
-    host: 132.232.148.214
-    port: 6379
     lettuce:
       shutdown-timeout: 100ms #超时时间
       pool:
         max-active: 20
-        min-idle: 0
+        min-idle: 2
         max-idle: 10
-        max-wait: 100ms
+        max-wait: 500ms
     timeout: 30000
-
   servlet:
     multipart:
       max-file-size: 50MB  # 文件上传大小限制
@@ -74,8 +74,8 @@ mybatis-plus:
     db-config:
       logic-delete-value: 1 # 逻辑已删除值(默认为 1)
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 pagehelper:
   helperDialect: mysql
   reasonable: false

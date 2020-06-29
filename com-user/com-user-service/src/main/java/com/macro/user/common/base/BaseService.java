@@ -1,6 +1,7 @@
 package com.macro.user.common.base;
 
 import com.macro.common.entity.mapper.TbUserMapper;
+import com.macro.user.common.util.redis.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -12,6 +13,9 @@ public class BaseService{
 
     @Autowired
     protected BaseDao baseDao;
+
+    @Autowired
+    protected RedisUtil redisUtil;
 
     @Autowired
     protected TbUserMapper tbUserMapper;
