@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @Date 2020/6/28 13:20
  * @Description 用户相关接口
  */
-@FeignClient(name = "userService", path = "user", fallbackFactory = UserFeignClientFallbackFactory.class)
+@FeignClient(value = "userService", fallbackFactory = UserFeignClientFallbackFactory.class)
 public interface UserFeign {
 
 
@@ -22,7 +22,7 @@ public interface UserFeign {
      * @return
      */
     @RequestMapping(value = "/user/username/{name}",method = RequestMethod.GET)
-    TbUser queryPage(@PathVariable String name);
+    TbUser queryUserByName(@PathVariable String name);
 
 
 

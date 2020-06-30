@@ -1,0 +1,48 @@
+server:
+  servlet:
+    context-path: /auth
+
+# 日志设置
+logging:
+  level:
+    root: info
+  config: classpath:logback-spring.xml
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: authService
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true   #返回时间戳
+    time-zone: GMT+8
+#配置admin监控内容
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #监控所有
+  endpoint:
+    health:
+      show-details: always
+
+feign:
+  compression:
+    request:
+      enabled: true     #请求压缩
+      mime-types: application/json,text/html,application/xml    #请求压缩的类型
+      min-request-size: 2048                                    #最小请求阈值长度
+    response:
+      enabled: true     #响应压缩
+  hystrix:
+    enabled: false   # 开启断路器
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 60000   # 超时设置
+  ConnectTimeout: 60000
+
+

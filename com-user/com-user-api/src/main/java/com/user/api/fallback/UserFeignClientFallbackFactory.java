@@ -15,7 +15,7 @@ public class UserFeignClientFallbackFactory implements FallbackFactory<UserFeign
         return new UserFeign() {
 
             @Override
-            public TbUser queryPage(String name) {
+            public TbUser queryUserByName(String name) {
                 log.error("通过用户名查询用户异常:{}", name, throwable);
                 return new TbUser();
             }
