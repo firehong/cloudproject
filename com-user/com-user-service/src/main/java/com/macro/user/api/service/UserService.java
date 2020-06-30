@@ -10,10 +10,10 @@ import com.macro.common.entity.entity.TbUser;
 public interface UserService {
 
     /**
-     * 根据用户名查询用户
+     * 根据登录账号查询用户
      * @Param userName
      * @Return
      */
-    TbUser selectUserByName(String userName);
+    TbUser queryUserByAccount(String account);
 
 }

@@ -1,6 +1,6 @@
 package com.macro.auth.common.base;
 
-import com.user.api.UserFeign;
+import com.macro.auth.api.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -11,6 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class BaseController{
 
     @Autowired
-    protected UserFeign userFeign;
+    protected AuthService authService;
 
 }

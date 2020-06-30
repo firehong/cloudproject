@@ -19,6 +19,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
         <!-- mybatisplus 实体代码生成 -->
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -59,11 +64,6 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.3.7</version>
         </dependency>
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>

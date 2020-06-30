@@ -17,12 +17,12 @@ public interface UserFeign {
 
 
     /**
-     * 根据用户名查找用户
+     * 根据登录账号查找用户
      * @param
      * @return
      */
-    @RequestMapping(value = "/user/username/{name}",method = RequestMethod.GET)
-    TbUser queryUserByName(@PathVariable String name);
+    @RequestMapping(value = "/user/account/{account}",method = RequestMethod.GET)
+    TbUser queryUserByAccount(@PathVariable String account);
 
 
 

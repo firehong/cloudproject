@@ -20,10 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class UserController extends BaseController {
 
-    @ApiOperation(value = "根据用户名获取用户信息", notes = "根据用户名获取用户信息", httpMethod = "GET")
-    @GetMapping(value = "/username/{userName}")
-    public TbUser getStoreInfo(@PathVariable String userName){
-        return userService.selectUserByName(userName);
+    @ApiOperation(value = "根据登录账号获取用户信息", notes = "根据登录账号获取用户信息", httpMethod = "GET")
+    @GetMapping(value = "/account/{account}")
+    public TbUser queryUserByAccount(@PathVariable String account){
+        return userService.queryUserByAccount(account);
     }
 
 }
