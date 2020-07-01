@@ -5,10 +5,11 @@ import com.macro.gateway.route.context.GatewayContext;
 import com.macro.gateway.route.handler.GateWayException;
 import com.macro.gateway.route.properties.GateWayIgnoredUrlProperties;
 import com.macro.gateway.util.IpUtil;
-import com.macro.gateway.util.StringUtil;
+import com.macro.gateway.util.JwtUtils;
 import com.macro.gateway.util.redis.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
+
 import javax.annotation.Resource;
 
 /**
@@ -31,11 +33,12 @@ public class GlobalAccessFilter implements GlobalFilter, Ordered {
 
     @Resource
     private GateWayIgnoredUrlProperties ignoredUrl;
-
     @Autowired
     private RedisUtil redis;
+    @Value("${jwt.config.secret}")
+    private String secret;
 
-    private AntPathMatcher pathMatcher=new AntPathMatcher();
+    private AntPathMatcher pathMatcher = new AntPathMatcher();
 
     /**
      * @date 2019/10/8 11:19
@@ -58,10 +61,9 @@ public class GlobalAccessFilter implements GlobalFilter, Ordered {
             }else{
                 ServerHttpResponse response=exchange.getResponse();
                 // 权限判断
-                if(gatewayContext.getRequestHeaders().get("uid") != null){
-                    String uid = gatewayContext.getRequestHeaders().get("uid").get(0);
+                if(gatewayContext.getRequestHeaders().get("token") != null){
                     String token = gatewayContext.getRequestHeaders().get("token").get(0);
-                    if(verifyAccessToken(uid, token)){
+                    if(verifyAccessToken(token)){
                         //验证通过 访问
                         return chain.filter(exchange);
                     }
@@ -109,13 +111,9 @@ public class GlobalAccessFilter implements GlobalFilter, Ordered {
      * @Description token权限验证
      * @Param
      */
-    protected boolean verifyAccessToken(String uid, String token){
-        //token验证
-        if(StringUtil.isEmpty(uid)){
-            return false;
-        }
-        String rtoken = redis.get(uid, String.class);
-        return !StringUtil.isEmpty(rtoken) && rtoken.equals(token);
+    protected boolean verifyAccessToken(String token){
+        //token有效性验证
+        return JwtUtils.validate(token, secret);
     }
 
     @Override

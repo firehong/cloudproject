@@ -24,9 +24,9 @@ public class GateWayIgnoredUrlProperties {
             "/**/hystrix/**",
             "/**/hystrix/**/**",
             "/**/proxy.stream/**" , //熔断监控
-            "/market/**",
-            "/marketAdmin/**",
-            "/**/druid/**", "/**/favicon.ico"
+            "/**/druid/**",
+            "/**/favicon.ico",
+            "/auth/**",  //授权服务
     };
 
     private String[] ignored;

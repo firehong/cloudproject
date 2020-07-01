@@ -4,6 +4,8 @@ spring:
     active: dev       #dev 开发环境; prod 商用环境
   application:
     name: gatewayCenter  #服务注册名
+  main:
+    allow-bean-definition-overriding: true
 
 ribbon:
   eureka:

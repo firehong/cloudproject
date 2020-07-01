@@ -10,9 +10,9 @@ eureka:
   instance:
     metadata-map:
       management:
-        context-path: /user/actuator
-    health-check-url: http://localhost:${server.port}/user/actuator/health
-    status-page-url: http://localhost:${server.port}/user/actuator/info
+        context-path: /auth/actuator
+    health-check-url: http://localhost:${server.port}/auth/actuator/health
+    status-page-url: http://localhost:${server.port}/auth/actuator/info
     home-page-url: http://localhost:${server.port}
 
 spring:
@@ -33,3 +33,8 @@ spring:
     multipart:
       max-file-size: 50MB  # 文件上传大小限制
       max-request-size: 50MB
+
+jwt:  # jwt 配置
+  config:
+    secret: hongda
+    expireTime: 86400000   # 24*60*60*1000 单位ms

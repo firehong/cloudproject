@@ -1,11 +1,11 @@
-package com.macro.auth.interceptor;
+package com.macro.user.interceptor;
 
 import com.alibaba.fastjson.JSON;
-import com.macro.auth.common.base.BaseService;
 import com.macro.common.exception.MyException;
 import com.macro.common.exception.SystemError;
 import com.macro.common.response.BaseResult;
 import com.macro.common.utils.IpUtil;
+import com.macro.user.common.base.BaseService;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -38,7 +38,7 @@ public class ApiAspectContent extends BaseService {
 	 * @return
 	 * @throws Throwable
 	 */
-	@Around("execution(* com.macro.auth.api.controller.*.*(..))")
+	@Around("execution(* com.macro.user.api.controller.*.*(..))")
 	public Object getCache(ProceedingJoinPoint jp) throws Throwable{
 		//获取类名
 		String className = jp.getThis().toString();

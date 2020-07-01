@@ -10,9 +10,9 @@ eureka:
   instance:
     metadata-map:
       management:
-        context-path: /user/actuator
-    health-check-url: http://localhost:${server.port}/user/actuator/health
-    status-page-url: http://localhost:${server.port}/user/actuator/info
+        context-path: /auth/actuator
+    health-check-url: http://localhost:${server.port}/auth/actuator/health
+    status-page-url: http://localhost:${server.port}/auth/actuator/info
     home-page-url: http://localhost:${server.port}
 
 spring:

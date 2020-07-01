@@ -16,33 +16,18 @@ public class Routes {
     @Bean
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
-                // 门户服务接口
-                .route(p -> p
-                        .path("/apiCar/**")
-                        .uri("lb://cgmCarsApi")
-                        .id("webapi")
-                )
-                // 后管系统接口
-                .route(p -> p
-                        .path("/adminCar/**")
-                        .uri("lb://cgmCarsAdmin")
-                        .id("adminapi")
-                )
-                .route(p -> p
-                        .path("/admin/**")
-                        .uri("lb://cgmCarsAdmin")
-                        .id("admin")
-                )
-                .route(p -> p
-                        .path("/market/**")
-                        .uri("lb://market")
-                        .id("market")
-                )
-                .route(p -> p
-                        .path("/marketAdmin/**")
-                        .uri("lb://marketAdmin")
-                        .id("marketAdmin")
-                )
+//                // 授权服务
+//                .route(p -> p
+//                        .path("/auth/**")
+//                        .uri("lb://authService")
+//                        .id("authApi")
+//                )
+                // 用户模块
+//                .route(p -> p
+//                        .path("/user/**")
+//                        .uri("lb://userService")
+//                        .id("userApi")
+//                )
                 .build();
     }
 
