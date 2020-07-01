@@ -40,13 +40,8 @@ public class RedisUtil implements RedisService{
     }
 
     @Override
-    public <T> T get(Object key, Class<T> type) {
-        return (T)redisTemplate.opsForValue().get(key);
-    }
-
-    @Override
-    public Object get(Object key) {
-        return redisTemplate.opsForValue().get(key);
+    public <T> T get(Object key) {
+        return key==null?null:(T)redisTemplate.opsForValue().get(key);
     }
 
     @Override

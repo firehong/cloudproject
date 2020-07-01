@@ -27,12 +27,7 @@ public interface RedisService {
     /**
      * 获取缓存对象
      */
-    <T> T get(Object key, Class<T> type);
-
-    /**
-     * 获取缓存
-     */
-    Object get(Object key);
+    <T> T get(Object key);
 
     /**
      * 删除缓存

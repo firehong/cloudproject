@@ -50,7 +50,7 @@ public class CacheService {
      * @Param
      */
     public boolean refreshUserLoginCache(String token){
-        UserVO uv = redis.get(token,UserVO.class);
+        UserVO uv = redis.get(token);
         if(uv != null){
             redis.set(uv.getToken(), uv, (long)(1000 * 60 * 60 * 24));
             redis.set(uv.getUid(), uv.getToken(), (long)(1000 * 60 * 60 * 24));
@@ -80,7 +80,7 @@ public class CacheService {
      * @Param
      */
     public void delUserLoginCache(String token){
-        UserVO uv = redis.get(token, UserVO.class);
+        UserVO uv = redis.get(token);
         //清除存储token
         redis.del(token);
         redis.del(uv.getUid());

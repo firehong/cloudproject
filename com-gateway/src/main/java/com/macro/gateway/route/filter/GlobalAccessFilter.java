@@ -6,9 +6,7 @@ import com.macro.gateway.route.handler.GateWayException;
 import com.macro.gateway.route.properties.GateWayIgnoredUrlProperties;
 import com.macro.gateway.util.IpUtil;
 import com.macro.gateway.util.JwtUtils;
-import com.macro.gateway.util.redis.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
@@ -33,8 +31,6 @@ public class GlobalAccessFilter implements GlobalFilter, Ordered {
 
     @Resource
     private GateWayIgnoredUrlProperties ignoredUrl;
-    @Autowired
-    private RedisUtil redis;
     @Value("${jwt.config.secret}")
     private String secret;
 
@@ -52,7 +48,7 @@ public class GlobalAccessFilter implements GlobalFilter, Ordered {
             //获取请求上下文
             GatewayContext gatewayContext = exchange.getAttribute(GatewayContext.CACHE_GATEWAY_CONTEXT);
             String path = gatewayContext.getPath();
-            log.info("[ route ] 请求地址: {}, 请求请求目标url: {}", IpUtil.getIpAddress(request), path);
+            log.info("[ route ] 请求地址: {}, 请求目标url: {}", IpUtil.getIpAddress(request), path);
             //检查是否为白名单路径
             boolean flag = whiteVerify(path);
             if(flag){

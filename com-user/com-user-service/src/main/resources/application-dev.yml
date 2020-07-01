@@ -81,3 +81,7 @@ pagehelper:
   reasonable: false
   supportMethodsArguments: true
   params: count=countSql
+
+jwt:  # jwt 配置
+  config:
+    secret: hongda
