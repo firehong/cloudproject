@@ -59,8 +59,7 @@ public class CustomNotifier  extends AbstractStatusChangeNotifier {
                         stringBuilder.append("\n 详情：").append(((InstanceStatusChangedEvent) event).getStatusInfo().getDetails());
                         Map param = new HashMap();
                         param.put("content", stringBuilder.toString());
-                        WebhookUtil.sendText("",
-                                param);
+                        WebhookUtil.sendText("", param);
                         break;
                     //服务上线
                     case "UP":

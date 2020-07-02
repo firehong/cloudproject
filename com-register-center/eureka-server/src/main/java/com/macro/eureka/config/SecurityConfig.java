@@ -1,4 +1,4 @@
-package com.macro.eureka;
+package com.macro.eureka.config;
 
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
