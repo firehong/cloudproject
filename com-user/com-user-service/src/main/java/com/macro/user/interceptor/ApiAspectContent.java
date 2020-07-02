@@ -40,6 +40,8 @@ public class ApiAspectContent extends BaseService {
 
 	@Value("${jwt.config.secret}")
 	private String secret;
+	@Value("${spring.profiles.active}")
+	private String profiles;
 
 	/**
 	 * 拦截contoller层 操作日志
@@ -67,17 +69,30 @@ public class ApiAspectContent extends BaseService {
 	    	result = jp.proceed();
 
 			//日志打印
-	    	log.info("\n ----------------接口日志开始--------------- \n"+
-					 "[API]类名:{} \n"+
-					 "方法名:{} \n"+
-					 "请求ip地址:{} \n"+
-					 "请求TOKEN:{} \n"+
-			  		 "请求参数列表:{} \n"+
-					 "返回参数列表:{} \n"+
-					 "共计消耗:{} ms \n"+
-					 "----------------接口日志结束--------------- \n",
-					 className, methodName, ip, req.getHeader("token"), params, JSON.toJSONString(result),
-					 (System.currentTimeMillis() - start));
+			if(!"prod".equals(profiles)){
+				log.info("\n ----------------接口日志开始--------------- \n"+
+								"[API]类名:{} \n"+
+								"方法名:{} \n"+
+								"请求ip地址:{} \n"+
+								"请求TOKEN:{} \n"+
+								"请求参数列表:{} \n"+
+								"返回参数列表:{} \n"+
+								"共计消耗:{} ms \n"+
+								"----------------接口日志结束--------------- \n",
+						className, methodName, ip, req.getHeader("token"), params, JSON.toJSONString(result),
+						(System.currentTimeMillis() - start));
+			}
+			if("prod".equals(profiles)){
+				log.info("\n ----------------接口日志开始--------------- \n"+
+								"[API]类名:{} \n"+
+								"方法名:{} \n"+
+								"请求ip地址:{} \n"+
+								"请求TOKEN:{} \n"+
+								"请求参数列表:{} \n"+
+								"共计消耗:{} ms \n"+
+								"----------------接口日志结束--------------- \n",
+						className, methodName, ip, req.getHeader("token"), params, (System.currentTimeMillis() - start));
+			}
 	    	//返回数据
 	    	return result;
 		} catch (Exception e) {

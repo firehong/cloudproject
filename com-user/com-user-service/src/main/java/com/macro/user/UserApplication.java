@@ -17,10 +17,10 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableDiscoveryClient
 @MapperScan("com.macro.common.entity.mapper.**")
 @EnableAsync
-public class WebApiApplication{
+public class UserApplication{
 
     public static void main(String[] args) {
-        SpringApplication.run(WebApiApplication.class, args);
+        SpringApplication.run(UserApplication.class, args);
     }
 
 }
