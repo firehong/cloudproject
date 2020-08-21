@@ -1,11 +1,11 @@
 package com.macro.auth.interceptor;
 
 import com.alibaba.fastjson.JSON;
+import com.common.core.exception.MyException;
+import com.common.core.exception.SystemError;
+import com.common.core.response.BaseResult;
 import com.macro.auth.common.base.BaseService;
-import com.macro.common.exception.MyException;
-import com.macro.common.exception.SystemError;
-import com.macro.common.response.BaseResult;
-import com.macro.common.utils.IpUtil;
+import com.macro.auth.utils.IpUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
