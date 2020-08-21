@@ -1,8 +1,10 @@
 package com.macro.auth.api.service;
 
 
+import com.common.core.vo.user.UserVO;
 import com.macro.auth.api.param.LoginParam;
-import com.macro.common.vo.user.UserVO;
+
+
 
 /**
  * @Author Macro

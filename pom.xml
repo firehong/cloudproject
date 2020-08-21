@@ -20,7 +20,6 @@
         <module>com-register-center</module>
         <module>com-gateway</module>
         <module>com-user</module>
-        <module>com-job-center</module>
         <module>com-monitor</module>
         <module>com-auth-center</module>
     </modules>
@@ -63,13 +62,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>LATEST</version>
-        </dependency>
-        <!-- 工具包 -->
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.3.7</version>
+            <version>1.2.73</version>
         </dependency>
     </dependencies>
 

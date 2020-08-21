@@ -1,7 +1,7 @@
 package com.macro.user.api.controller;
 
 
-import com.macro.common.entity.entity.TbUser;
+import com.common.generator.entity.entity.TbUser;
 import com.macro.user.common.base.BaseController;
 import com.macro.user.interceptor.Auth;
 import io.swagger.annotations.Api;

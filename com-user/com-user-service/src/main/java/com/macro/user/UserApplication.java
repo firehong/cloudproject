@@ -15,7 +15,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient
-@MapperScan("com.macro.common.entity.mapper.**")
+@MapperScan("com.common.generator.entity.mapper")
 @EnableAsync
 public class UserApplication{
 

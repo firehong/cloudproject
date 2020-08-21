@@ -1,6 +1,7 @@
 package com.macro.user.common.base;
 
-import com.macro.common.entity.mapper.TbUserMapper;
+
+import com.common.generator.entity.mapper.TbUserMapper;
 import com.macro.user.common.util.redis.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 

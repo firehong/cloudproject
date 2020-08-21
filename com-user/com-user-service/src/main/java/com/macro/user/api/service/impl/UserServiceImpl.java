@@ -1,7 +1,7 @@
 package com.macro.user.api.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.macro.common.entity.entity.TbUser;
+import com.common.generator.entity.entity.TbUser;
 import com.macro.user.api.service.UserService;
 import com.macro.user.common.base.BaseService;
 import lombok.extern.slf4j.Slf4j;

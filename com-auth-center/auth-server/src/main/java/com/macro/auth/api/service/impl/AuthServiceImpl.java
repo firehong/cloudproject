@@ -1,13 +1,13 @@
 package com.macro.auth.api.service.impl;
 
+import com.common.core.enums.UserStatus;
+import com.common.core.exception.MyException;
+import com.common.core.exception.SystemError;
+import com.common.core.vo.user.UserVO;
+import com.common.generator.entity.entity.TbUser;
 import com.macro.auth.api.param.LoginParam;
 import com.macro.auth.api.service.AuthService;
 import com.macro.auth.common.base.BaseService;
-import com.macro.common.entity.entity.TbUser;
-import com.macro.common.enums.UserStatus;
-import com.macro.common.exception.MyException;
-import com.macro.common.exception.SystemError;
-import com.macro.common.vo.user.UserVO;
 import org.springframework.stereotype.Service;
 
 @Service

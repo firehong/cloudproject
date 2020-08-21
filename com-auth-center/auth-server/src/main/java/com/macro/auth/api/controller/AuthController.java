@@ -1,10 +1,9 @@
 package com.macro.auth.api.controller;
 
-
+import com.common.core.response.BaseResult;
+import com.common.core.vo.user.UserVO;
 import com.macro.auth.api.param.LoginParam;
 import com.macro.auth.common.base.BaseController;
-import com.macro.common.response.BaseResult;
-import com.macro.common.vo.user.UserVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;

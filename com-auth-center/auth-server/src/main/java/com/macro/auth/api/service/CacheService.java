@@ -1,9 +1,9 @@
 package com.macro.auth.api.service;
 
 
+import com.common.core.utils.JwtUtils;
+import com.common.core.vo.user.UserVO;
 import com.macro.auth.common.util.redis.RedisUtil;
-import com.macro.common.utils.JwtUtils;
-import com.macro.common.vo.user.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

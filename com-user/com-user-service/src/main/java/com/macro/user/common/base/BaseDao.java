@@ -1,7 +1,7 @@
 package com.macro.user.common.base;
 
 
-import com.macro.common.utils.StringUtil;
+import com.common.core.utils.StringUtil;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;

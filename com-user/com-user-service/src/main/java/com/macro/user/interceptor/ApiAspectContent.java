@@ -1,15 +1,15 @@
 package com.macro.user.interceptor;
 
 import com.alibaba.fastjson.JSON;
-import com.macro.common.exception.MyException;
-import com.macro.common.exception.SystemError;
-import com.macro.common.response.BaseResult;
-import com.macro.common.utils.IpUtil;
-import com.macro.common.utils.JwtUtils;
-import com.macro.common.utils.SignUtil;
-import com.macro.common.utils.StringUtil;
-import com.macro.common.vo.user.UserVO;
+import com.common.core.exception.MyException;
+import com.common.core.exception.SystemError;
+import com.common.core.response.BaseResult;
+import com.common.core.utils.JwtUtils;
+import com.common.core.utils.SignUtil;
+import com.common.core.utils.StringUtil;
+import com.common.core.vo.user.UserVO;
 import com.macro.user.common.base.BaseService;
+import com.macro.user.utils.IpUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;

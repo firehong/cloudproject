@@ -1,8 +1,8 @@
 package com.protocol.response;
 
 
+import com.common.core.exception.SystemError;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.macro.common.exception.SystemError;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

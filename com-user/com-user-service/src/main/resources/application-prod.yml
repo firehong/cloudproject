@@ -17,38 +17,31 @@ eureka:
 
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: mcfishtest@2019
     url: "jdbc:mysql://gz-cdb-jm6bdf98.sql.tencentcdb.com:63946/db_mcfish_szl3?useUnicode=true&characterEncoding=utf8&&useSSL=false&&serverTimezone=GMT%2B8"
     type: com.alibaba.druid.pool.DruidDataSource
-    # druid 配置
+    #连接池配置
     druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
       initial-size: 5
-      # 最大连接池数量
-      max-active: 50
-      # 最小连接池数量
       min-idle: 5
-      # 获取连接时最大等待时间
-      max-wait: 60000
-      # 是否缓存preparedStatement，也就是PSCache。
-      pool-prepared-statements: false
-      # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true。
-      max-pool-prepared-statement-per-connection-size: -1
-      # 用来检测连接是否有效的sql，要求是一个查询语句，常用select 'x'。
-      validation-query: SELECT 'x'
-      # 单位：秒，检测连接是否有效的超时时间。
-      validation-query-timeout: 1
-      # 申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
-      test-on-borrow: false
-      # 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
-      test-on-return: false
-      # 建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。
-      test-while-idle: true
-      # 有两个含义：1) Destroy线程会检测连接的间隔时间，如果连接空闲时间大于等于minEvictableIdleTimeMillis则关闭物理连接。2) testWhileIdle的判断依据，详细看testWhileIdle属性的说明
-      time-between-eviction-runs-millis: 6000
-      # 连接保持空闲而不被驱逐的最小时间
-      min-evictable-idle-time-millis: 1800000
+      max-active: 20
+      #连接等待超时时间
+      max-wait: 30000
+      #配置检测可以关闭的空闲连接间隔时间
+      time-between-eviction-runs-millis: 60000
+      #配置连接在池中的最小生存时间
+      min-evictable-idle-time-millis: 300000
+      #配置监控统计拦截的filters
+      filter:
+        #监控统计用的filter:stat
+        stat:
+          enabled: true
+          merge-sql: true
+          log-slow-sql: true
+          #配置SQL慢的标准，执行时间超过slowSqlMillis的就是慢
+          slow-sql-millis: 5000  #redis
   redis:
     cluster:
       nodes: 132.232.148.214:6379
@@ -73,8 +66,3 @@ mybatis-plus:
     db-config:
       logic-delete-value: 1 # 逻辑已删除值(默认为 1)
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
-pagehelper:
-  helperDialect: mysql
-  reasonable: false
-  supportMethodsArguments: true
-  params: count=countSql

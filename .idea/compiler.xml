@@ -6,23 +6,29 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eureka-server" />
-        <module name="com-gateway" />
-        <module name="com-user-service" />
-        <module name="auth-server" />
-        <module name="com-job-center" />
-        <module name="oauth2-server" />
-        <module name="com-boot-admin" />
-        <module name="com-common" />
-        <module name="com-tools-api" />
-        <module name="com-tools-service" />
         <module name="com-user-api" />
+        <module name="com-common-mybatis" />
+        <module name="oauth2-server" />
+        <module name="com-common-swagger" />
+        <module name="com-boot-admin" />
+        <module name="com-user-service" />
+        <module name="com-gateway" />
+        <module name="auth-server" />
+        <module name="com-tools-sms" />
         <module name="com-protocol" />
+        <module name="eureka-server" />
+        <module name="com-common-core" />
+        <module name="com-tools-oss" />
+        <module name="com-tools-api" />
+        <module name="com-common-cache" />
+        <module name="com-common-generator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="com-api" target="1.8" />
+      <module name="com-job-center" target="1.8" />
       <module name="com-tools-provider" target="1.8" />
+      <module name="com-tools-service" target="1.8" />
       <module name="nacos-server" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -32,14 +38,21 @@
       <module name="com-api" options="-parameters" />
       <module name="com-auth-center" options="" />
       <module name="com-boot-admin" options="-parameters" />
-      <module name="com-common" options="-parameters" />
+      <module name="com-common" options="" />
+      <module name="com-common-cache" options="-parameters" />
+      <module name="com-common-core" options="-parameters" />
+      <module name="com-common-generator" options="-parameters" />
+      <module name="com-common-mybatis" options="-parameters" />
+      <module name="com-common-swagger" options="-parameters" />
       <module name="com-gateway" options="-parameters" />
       <module name="com-job-center" options="-parameters" />
       <module name="com-monitor" options="" />
       <module name="com-protocol" options="-parameters" />
       <module name="com-register-center" options="" />
       <module name="com-tools-api" options="-parameters" />
+      <module name="com-tools-oss" options="-parameters" />
       <module name="com-tools-service" options="-parameters" />
+      <module name="com-tools-sms" options="-parameters" />
       <module name="com-user-api" options="-parameters" />
       <module name="com-user-service" options="-parameters" />
       <module name="eureka-server" options="-parameters" />

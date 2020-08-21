@@ -15,7 +15,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>com-tools-api</module>
-        <module>com-tools-service</module>
+        <module>com-tools-sms</module>
+        <module>com-tools-oss</module>
     </modules>
 
 

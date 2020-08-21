@@ -5,8 +5,6 @@ spring:
   application:
     name: eurekaServer
   security:
-    basic:
-      enabled: true # 启用身份认证
     user:   # 认证账户密码
       name: admin
       password: admin

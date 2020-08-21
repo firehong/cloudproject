@@ -1,8 +1,8 @@
 package com.macro.user.interceptor;
 
 
-import com.macro.common.exception.SystemError;
-import com.macro.common.response.BaseResult;
+import com.common.core.exception.SystemError;
+import com.common.core.response.BaseResult;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;

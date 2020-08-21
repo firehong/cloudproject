@@ -19,6 +19,7 @@ spring:
     serialization:
       write-dates-as-timestamps: true   #返回时间戳
     time-zone: GMT+8
+
 #配置admin监控内容
 management:
   endpoints:

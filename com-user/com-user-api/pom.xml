@@ -12,18 +12,21 @@
     <artifactId>com-user-api</artifactId>
 
     <dependencies>
+        <!-- openfeign -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
+        <!-- 公共模块 -->
         <dependency>
             <groupId>com-macro</groupId>
-            <artifactId>com-common</artifactId>
+            <artifactId>com-common-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <!-- 实体 -->
         <dependency>
             <groupId>com-macro</groupId>
-            <artifactId>com-protocol</artifactId>
+            <artifactId>com-common-generator</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

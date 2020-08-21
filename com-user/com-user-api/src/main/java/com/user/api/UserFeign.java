@@ -1,6 +1,7 @@
 package com.user.api;
 
-import com.macro.common.entity.entity.TbUser;
+
+import com.common.generator.entity.entity.TbUser;
 import com.user.api.fallback.UserFeignClientFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;

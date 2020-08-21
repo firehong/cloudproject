@@ -1,7 +1,7 @@
 package com.macro.user.interceptor;
 
 
-import com.macro.common.vo.user.UserVO;
+import com.common.core.vo.user.UserVO;
 
 /**
  * @Author Macro

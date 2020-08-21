@@ -1,6 +1,7 @@
 package com.macro.user.api.service;
 
-import com.macro.common.entity.entity.TbUser;
+
+import com.common.generator.entity.entity.TbUser;
 
 /**
  * @Author Macro

@@ -1,6 +1,7 @@
 package com.user.api.fallback;
 
-import com.macro.common.entity.entity.TbUser;
+
+import com.common.generator.entity.entity.TbUser;
 import com.user.api.UserFeign;
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
