@@ -1,0 +1,24 @@
+server:
+  port: 4000
+
+spring:
+  application:
+    name: ossService
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:admin@127.0.0.1:9700/eureka/eureka/
+
+# 日志设置
+logging:
+  level:
+    root: info
+  config: classpath:logback-spring.xml
+
+com:
+  oss: #阿里oss配置
+    endpoint:
+    accessKeyId:
+    accessKeySecret:
+    bucketName:

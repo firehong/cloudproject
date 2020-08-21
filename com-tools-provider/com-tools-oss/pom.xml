@@ -11,5 +11,35 @@
     <description> oss服务 </description>
     <artifactId>com-tools-oss</artifactId>
 
+    <dependencies>
+        <!-- tools api -->
+        <dependency>
+            <groupId>com-macro</groupId>
+            <artifactId>com-tools-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--阿里OOS存储-->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>2.8.3</version>
+        </dependency>
+        <!-- 公共模块 -->
+        <dependency>
+            <groupId>com-szl</groupId>
+            <artifactId>szl-common-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- web基础 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- 服务注册与发现 服务提供方 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

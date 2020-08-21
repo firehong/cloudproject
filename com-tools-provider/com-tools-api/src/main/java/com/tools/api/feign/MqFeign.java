@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface MqFeign {
 
     /**
-     * 根据登录账号查找用户
+     * 队列消息发送
      * @param
      * @return
      */

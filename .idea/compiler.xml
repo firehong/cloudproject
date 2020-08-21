@@ -16,12 +16,12 @@
         <module name="com-gateway" />
         <module name="auth-server" />
         <module name="com-user-service" />
-        <module name="eureka-server" />
-        <module name="com-tools-api" />
         <module name="com-tools-mq" />
+        <module name="com-tools-api" />
         <module name="com-common-core" />
         <module name="com-tools-oss" />
         <module name="com-common-generator" />
+        <module name="eureka-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
