@@ -3,7 +3,7 @@ package com.macro.auth.common.base;
 
 import com.macro.auth.api.service.CacheService;
 import com.macro.auth.common.util.redis.RedisUtil;
-import com.user.api.UserFeign;
+import com.user.api.feign.UserFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;

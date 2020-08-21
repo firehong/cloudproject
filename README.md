@@ -10,15 +10,26 @@
 
 ```
 myProject
-    cgm-common              公共类[工具、实体]    
-    cgm-protocol            内部通信协议定义
+    com-common              公共聚集模块
+        com-common-core     公共工具模块
+        com-common-cache    缓存模块
+        com-common-generator 代码生成模块
+        com-common-mybatis   数据持久层模块
+        com-common-swagger   接口文档生成模块
     com-tools-provider      相关三方工具提供
+        com-tools-api    内部调用feign接口
+        com-tools-sms    短信服务模块
+        com-tools-oss    存储服务模块
     com-auth-center         认证中心
+        auth-server    自研token授权服务
+        oauth2-server  oauth2授权服务(密码模式，code授权码模式，客户端模式)
     com-gateway             服务网关
     com-job-center          定时任务中心
     com-monitor             服务监控平台
+        com-boot-admin  admin监控
     com-register-center     服务注册中心
-    com-user                用户模块    
+        eureka-server   eureka注册中心
+    com-user                用户模块   
 
 ```
 swagger 文档地址：

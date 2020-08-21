@@ -18,8 +18,6 @@
     <file url="file://$PROJECT_DIR$/com-gateway/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-monitor/com-boot-admin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-monitor/com-boot-admin/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/com-protocol/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/com-protocol/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-register-center/eureka-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-register-center/eureka-server/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-tools-provider/com-tools-api/src/main/java" charset="UTF-8" />

@@ -6,27 +6,27 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="com-user-api" />
+        <module name="com-tools-sms" />
         <module name="com-common-mybatis" />
         <module name="oauth2-server" />
         <module name="com-common-swagger" />
         <module name="com-boot-admin" />
-        <module name="com-user-service" />
+        <module name="com-tools-api" />
+        <module name="com-common-cache" />
         <module name="com-gateway" />
         <module name="auth-server" />
-        <module name="com-tools-sms" />
-        <module name="com-protocol" />
+        <module name="com-common-generator" />
+        <module name="com-user-api" />
         <module name="eureka-server" />
         <module name="com-common-core" />
         <module name="com-tools-oss" />
-        <module name="com-tools-api" />
-        <module name="com-common-cache" />
-        <module name="com-common-generator" />
+        <module name="com-user-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="com-api" target="1.8" />
       <module name="com-job-center" target="1.8" />
+      <module name="com-protocol" target="1.8" />
       <module name="com-tools-provider" target="1.8" />
       <module name="com-tools-service" target="1.8" />
       <module name="nacos-server" target="1.8" />
