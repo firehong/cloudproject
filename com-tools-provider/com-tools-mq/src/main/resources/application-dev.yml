@@ -1,0 +1,27 @@
+# 端口设置
+server:
+  port: 9701
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:admin@127.0.0.1:9700/eureka/eureka/
+
+spring:
+  rabbitmq:
+    ### 连接地址
+    host: 192.168.0.145
+    ### 端口号
+    port: 5672
+    #### 用户名 可以自己创建
+    username: root
+    ### 密码
+    password: root
+    ### 创建的地址
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual  #手动应答
+        retry:
+          enabled: true  #是否支持重试
+

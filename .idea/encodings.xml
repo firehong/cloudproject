@@ -22,6 +22,8 @@
     <file url="file://$PROJECT_DIR$/com-register-center/eureka-server/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-tools-provider/com-tools-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-tools-provider/com-tools-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com-tools-provider/com-tools-mq/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com-tools-provider/com-tools-mq/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-tools-provider/com-tools-oss/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-tools-provider/com-tools-oss/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com-tools-provider/com-tools-sms/src/main/java" charset="UTF-8" />

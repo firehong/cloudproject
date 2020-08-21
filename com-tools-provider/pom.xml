@@ -17,6 +17,7 @@
         <module>com-tools-api</module>
         <module>com-tools-sms</module>
         <module>com-tools-oss</module>
+        <module>com-tools-mq</module>
     </modules>
 
 

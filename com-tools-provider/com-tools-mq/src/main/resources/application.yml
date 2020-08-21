@@ -1,0 +1,17 @@
+# 环境选择
+spring:
+  profiles:
+    active: dev
+  application:
+    name: mqService
+
+# 根目录
+server:
+  servlet:
+    context-path: /mq
+
+# 日志设置
+logging:
+  level:
+    root: info
+  config: classpath:logback-spring.xml

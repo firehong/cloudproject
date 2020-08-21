@@ -20,6 +20,7 @@ myProject
         com-tools-api    内部调用feign接口
         com-tools-sms    短信服务模块
         com-tools-oss    存储服务模块
+        com-tools-mq     消息总线
     com-auth-center         认证中心
         auth-server    自研token授权服务
         oauth2-server  oauth2授权服务(密码模式，code授权码模式，客户端模式)
