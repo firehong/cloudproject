@@ -1,5 +1,7 @@
 package com.macro.user;
 
+import com.common.cache.annotation.EnableRedisLockServer;
+import com.common.cache.annotation.EnableRedisServer;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +17,8 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableDiscoveryClient
 @MapperScan("com.common.generator.entity.mapper")
 @EnableAsync
+@EnableRedisServer
+@EnableRedisLockServer
 public class UserApplication{
 
     public static void main(String[] args) {

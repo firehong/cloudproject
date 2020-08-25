@@ -1,4 +1,4 @@
-package com.macro.auth.common.util.redis;
+package com.common.cache.redis.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Component
 @Slf4j
-public class RedisUtil implements RedisService{
+public class RedisUtil implements RedisService {
 
     @Autowired
     private RedisTemplate redisTemplate;
@@ -37,9 +37,8 @@ public class RedisUtil implements RedisService{
 
     @Override
     public <T> T get(Object key) {
-        return key == null ? null : (T)redisTemplate.opsForValue().get(key);
+        return key==null?null:(T)redisTemplate.opsForValue().get(key);
     }
-
 
     @Override
     public void del(Object key) {

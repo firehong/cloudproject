@@ -1,5 +1,6 @@
 package com.macro.gateway;
 
+import com.common.cache.annotation.EnableRedisServer;
 import com.macro.gateway.route.properties.GateWayIgnoredUrlProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -14,6 +15,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringCloudApplication
 @EnableConfigurationProperties(GateWayIgnoredUrlProperties.class)
 @EnableScheduling
+@EnableRedisServer
 public class GatewayServerApplication {
 
     public static void main(String[] args) {

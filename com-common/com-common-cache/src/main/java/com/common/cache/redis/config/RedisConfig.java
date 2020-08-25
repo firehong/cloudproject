@@ -1,4 +1,4 @@
-package com.macro.auth.common.util.redis.config;
+package com.common.cache.redis.config;
 
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -20,7 +20,6 @@ public class RedisConfig {
 
     @Bean
     public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory redisConnectionFactory) {
-
         final RedisTemplate<String, Object> template = new RedisTemplate<>();
         // 使用fastjson序列化
         final FastJsonRedisSerializer<?> fastJsonRedisSerializer = new FastJsonRedisSerializer<>(Object.class);

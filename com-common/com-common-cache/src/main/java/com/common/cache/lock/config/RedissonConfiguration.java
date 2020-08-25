@@ -1,5 +1,6 @@
-package com.macro.user.common.util.redis.config;
+package com.common.cache.lock.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
@@ -15,6 +16,7 @@ import java.io.IOException;
  * @Description  redisson 配置
  */
 @Configuration
+@Slf4j
 public class RedissonConfiguration {
 
     /**
@@ -24,8 +26,13 @@ public class RedissonConfiguration {
      */
     @Bean
     public RedissonClient redissonClient() throws IOException {
-        Config config = Config.fromYAML(new ClassPathResource("sentinelRedisson.yml").getInputStream());
-        return Redisson.create(config);
+        try {
+            Config config = Config.fromYAML(new ClassPathResource("sentinelRedisson.yml").getInputStream());
+            return Redisson.create(config);
+        }catch (Exception e){
+            log.error("[redisson] redisson未配置！分布式锁相关接口暂无法使用");
+            return null;
+        }
     }
 
 

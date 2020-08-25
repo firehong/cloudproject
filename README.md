@@ -29,7 +29,7 @@ myProject
     com-monitor             服务监控平台
         com-boot-admin  admin监控
     com-register-center     服务注册中心
-        eureka-server   eureka注册中心
+        eureka-server   eureka注册中心(弃用 切换到nacos)
     com-user                用户模块   
 
 ```

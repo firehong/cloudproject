@@ -1,4 +1,4 @@
-package com.macro.gateway.util.redis;
+package com.common.cache.redis.service;
 
 import java.util.concurrent.TimeUnit;
 

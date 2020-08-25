@@ -20,7 +20,7 @@ public class UserServiceImpl extends BaseService implements UserService {
 
     @Override
     public TbUser queryUserByAccount(String account) {
-        redisUtil.getLock(account, 100L, 1000L, TimeUnit.MILLISECONDS);
+        redisLockUtil.getLock(account, 100L, 1000L, TimeUnit.MILLISECONDS);
         QueryWrapper<TbUser> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda().eq(TbUser::getName, account).last(" limit 1");
         return tbUserMapper.selectOne(queryWrapper);
