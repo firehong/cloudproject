@@ -1,9 +1,14 @@
-#环境切换
 spring:
   profiles:
-    active: dev       #dev 开发环境; prod 商用环境
+    active: dev
   application:
-    name: monitorCentor  #服务注册名
+    name: authService
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true   #返回时间戳
+    time-zone: GMT+8
 
 # 日志设置
 logging:
@@ -20,6 +25,5 @@ management:
   endpoint:
     health:
       show-details: always
-
 
 

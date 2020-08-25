@@ -35,7 +35,7 @@ public class Swagger2Config {
                 .apiInfo(apiInfo())
                 .globalOperationParameters(pars)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.macro.user.api.**"))
+                .apis(RequestHandlerSelectors.basePackage("com.macro.user.api"))
                 .paths(PathSelectors.any())
                 .build();
     }

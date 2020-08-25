@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: com-boot-admin
+  profiles:
+    active: dev  #dev 开发环境; prod 商用环境
+  main:
+    allow-bean-definition-overriding: true
+
+#配置admin监控内容
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #监控所有
+  endpoint:
+    health:
+      show-details: always
+
+# 日志设置
+logging:
+  level:
+    root: info
+  config: classpath:logback-spring.xml

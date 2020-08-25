@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+        #默认为Public命名空间,可以省略不写  自定义命名空间使用ID值
+        namespace: f9d63011-f7a8-481b-83b4-b48436dad3ed

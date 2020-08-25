@@ -50,8 +50,8 @@ public class CodeGenerator {
         dsc.setTypeConvert(new MySqlTypeConvert());
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("mcfishtest@2019");
-        dsc.setUrl("jdbc:mysql://gz-cdb-jm6bdf98.sql.tencentcdb.com:63946/db_mcfish_szl3?useUnicode=true&characterEncoding=utf8");
+        //dsc.setPassword("");
+        //dsc.setUrl("");
         mpg.setDataSource(dsc);
 
         // 包配置

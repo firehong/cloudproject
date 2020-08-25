@@ -53,5 +53,7 @@ api文档| swagger2 |
 ### 相关技术指南
 
 * [mybatis-plus](https://mp.baomidou.com/)
+* [spring Cloud](https://spring.io/projects/spring-cloud)
+* [spring Cloud Alibaba](https://spring.io/projects/spring-cloud-alibaba)
 * [pagehelper分页插件](https://pagehelper.github.io/)
 * [spring-validation](https://www.cnblogs.com/cjsblog/p/8946768.html)
