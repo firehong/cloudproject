@@ -18,6 +18,7 @@
         <module>com-common-swagger</module>
         <module>com-common-generator</module>
         <module>com-common-cache</module>
+        <module>com-common-sentinel</module>
     </modules>
 
 

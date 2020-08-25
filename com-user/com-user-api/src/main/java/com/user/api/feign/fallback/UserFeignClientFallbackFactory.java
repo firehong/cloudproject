@@ -13,15 +13,9 @@ public class UserFeignClientFallbackFactory implements FallbackFactory<UserFeign
 
     @Override
     public UserFeign create(Throwable throwable) {
-        return new UserFeign() {
-
-            @Override
-            public TbUser queryUserByAccount(String name) {
-                log.error("通过登录账号查询用户异常:{}", name, throwable);
-                return new TbUser();
-            }
-
-
+        return name -> {
+            log.error("通过登录账号查询用户异常:{}", name, throwable);
+            return new TbUser();
         };
     }
 

@@ -10,7 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @date 2019/11/9 9:54
  * @Description 启动主类
  */
-@EnableFeignClients(basePackages = {"com.user.api"})
+@EnableFeignClients(basePackages = {"com.user.api.**"})
 @SpringBootApplication
 @EnableDiscoveryClient
 public class AuthApplication {
