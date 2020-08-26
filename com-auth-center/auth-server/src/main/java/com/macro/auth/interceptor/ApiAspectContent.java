@@ -4,6 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.common.core.exception.MyException;
 import com.common.core.exception.SystemError;
 import com.common.core.response.BaseResult;
+import com.common.core.utils.JwtUtils;
+import com.common.core.utils.SignUtil;
+import com.common.core.utils.StringUtil;
+import com.common.core.vo.user.UserVO;
 import com.macro.auth.common.base.BaseService;
 import com.macro.auth.utils.IpUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -12,12 +16,14 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder;
 
 import javax.servlet.http.HttpServletResponseWrapper;
 import javax.validation.ConstraintViolationException;
+import java.lang.reflect.Method;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,6 +38,11 @@ import java.util.Map;
 @Slf4j
 public class ApiAspectContent extends BaseService {
 
+	@Value("${jwt.config.secret}")
+	private String secret;
+	@Value("${spring.profiles.active}")
+	private String profiles;
+
 	/**
 	 * 拦截contoller层 操作日志
 	 * @param jp
@@ -39,7 +50,7 @@ public class ApiAspectContent extends BaseService {
 	 * @throws Throwable
 	 */
 	@Around("execution(* com.macro.auth.api.controller.*.*(..))")
-	public Object getCache(ProceedingJoinPoint jp) throws Throwable{
+	public Object authDeal(ProceedingJoinPoint jp) throws Throwable{
 		//获取类名
 		String className = jp.getThis().toString();
 		//获取方法名
@@ -58,16 +69,30 @@ public class ApiAspectContent extends BaseService {
 	    	result = jp.proceed();
 
 			//日志打印
-	    	log.info("\n ----------------接口日志开始--------------- \n"+
-					 "[API]类名:{} \n"+
-					 "方法名:{} \n"+
-					 "请求ip地址:{} \n"+
-			  		 "请求参数列表:{} \n"+
-					 "返回参数列表:{} \n"+
-					 "共计消耗:{} ms \n"+
-					 "----------------接口日志结束--------------- \n",
-					 className, methodName, ip, params, JSON.toJSONString(result),
-					 (System.currentTimeMillis() - start));
+			if(!"prod".equals(profiles)){
+				log.info("\n ----------------接口日志开始--------------- \n"+
+								"[API]类名:{} \n"+
+								"方法名:{} \n"+
+								"请求ip地址:{} \n"+
+								"请求TOKEN:{} \n"+
+								"请求参数列表:{} \n"+
+								"返回参数列表:{} \n"+
+								"共计消耗:{} ms \n"+
+								"----------------接口日志结束--------------- \n",
+						className, methodName, ip, req.getHeader("token"), params, JSON.toJSONString(result),
+						(System.currentTimeMillis() - start));
+			}
+			if("prod".equals(profiles)){
+				log.info("\n ----------------接口日志开始--------------- \n"+
+								"[API]类名:{} \n"+
+								"方法名:{} \n"+
+								"请求ip地址:{} \n"+
+								"请求TOKEN:{} \n"+
+								"请求参数列表:{} \n"+
+								"共计消耗:{} ms \n"+
+								"----------------接口日志结束--------------- \n",
+						className, methodName, ip, req.getHeader("token"), params, (System.currentTimeMillis() - start));
+			}
 	    	//返回数据
 	    	return result;
 		} catch (Exception e) {
@@ -82,9 +107,11 @@ public class ApiAspectContent extends BaseService {
 				//系统异常打印到日志
 				log.error("\n[API]类名:{} ,\n" +
 							"方法名:{} \n"+
+							"请求TOKEN:{} \n"+
 						  	"请求参数列表:{} \n"+
 		  	    		  	"方法名:{}  ,\n"+
-						  	"异常连接--》",className, methodName, params, methodName, e);
+						  	"异常连接--》",
+							className, methodName, req.getHeader("token"), params, methodName, e);
 				//重复插入数据
 				if(e.getCause() instanceof SQLIntegrityConstraintViolationException){
 					return BaseResult.fail(SystemError.OPERATION_REPEAT);
@@ -111,6 +138,82 @@ public class ApiAspectContent extends BaseService {
 			}
 		}
 		return paramMap;
+	}
+
+	/**
+	 * @date 2019/11/7 17:59
+	 * @Description 参数合法性校验
+	 * @Param
+	 */
+	public String verifData(Map params){
+		//获取请求头信息
+		Long timestamp = Long.getLong(req.getHeader("timestamp")==null ? "1" : req.getHeader("timestamp"));
+		Integer dataType = Integer.getInteger(req.getHeader("dataType")==null ? "0" : req.getHeader("dataType"));
+		String sign = req.getHeader("sign")==null ? "" : req.getHeader("sign");
+		String version = req.getHeader("version")==null ? "" : req.getHeader("version");
+		String uid = req.getHeader("uid")==null ? "" : req.getHeader("uid");
+		String token = req.getHeader("token")==null ? "" : req.getHeader("token");
+		if(timestamp ==null || sign.isEmpty() || version.isEmpty() || uid.isEmpty() || token.isEmpty()){
+			return "参数缺失";
+		}
+		// 签名校验
+		params.put("timestamp",timestamp);
+		params.put("version",version);
+		params.put("token",token);
+		String checkSign = SignUtil.sign(params, "token");
+		if(!sign.toUpperCase().equals(checkSign)){
+			log.error("请求签名值：{}，系统签名值：{}", sign, checkSign);
+			return "签名错误";
+		}
+		return "SUCCESS";
+	}
+
+	/**
+	 * 鉴权处理
+	 * @author Macro 2019-07-03 11:44
+	 * @param
+	 * @return boolean
+	 */
+	private boolean auth(ProceedingJoinPoint jp){
+		//判断是否需要鉴权处理
+		MethodSignature ms = (MethodSignature)jp.getSignature();
+		Method me = ms.getMethod();
+		Auth auth = me.getAnnotation(Auth.class);
+		//如果方法上没有注解，获取类上面的注解
+		if(auth == null){
+			auth = jp.getTarget().getClass().getAnnotation(Auth.class);
+		}
+		//没有标记任何注解，默认不需要鉴权
+		int root = 0;
+		if(auth != null){
+			root = auth.isAuth();
+		}
+		if(root == 0){
+			//不需要鉴权
+			return true;
+		}
+		//判断登录状态鉴权检验
+		String token = req.getHeader("token");
+		if(StringUtil.isBlank(token)){return false;}
+		// 判断token有效性
+		if(!JwtUtils.validate(token, secret)){
+			return false;
+		}
+		UserVO userVO = redisUtil.get(token);
+		if(userVO == null){
+			return false;
+		}
+		UserContext.setUser(userVO);
+		//判断请求方法权限
+		String authCode = auth.authCode();
+		if("".equals(authCode)){
+			return true;
+		}
+//		List<String> authList = userVO.getAuthList();
+//		if(authList.contains(authCode)){
+//			return true;
+//		}
+		return false;
 	}
 
 

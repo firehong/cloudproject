@@ -50,7 +50,7 @@ public class ApiAspectContent extends BaseService {
 	 * @throws Throwable
 	 */
 	@Around("execution(* com.macro.user.api.controller.*.*(..))")
-	public Object getCache(ProceedingJoinPoint jp) throws Throwable{
+	public Object authDeal(ProceedingJoinPoint jp) throws Throwable{
 		//获取类名
 		String className = jp.getThis().toString();
 		//获取方法名

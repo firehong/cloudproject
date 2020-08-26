@@ -11,6 +11,8 @@
       <set>
         <option value="$PROJECT_DIR$/com-api/pom.xml" />
         <option value="$PROJECT_DIR$/com-boot-admin/pom.xml" />
+        <option value="$PROJECT_DIR$/com-common-easyauth/pom.xml" />
+        <option value="$PROJECT_DIR$/com-common/com-common-easyauth/pom.xml" />
         <option value="$PROJECT_DIR$/com-job-center/pom.xml" />
         <option value="$PROJECT_DIR$/com-protocol/pom.xml" />
         <option value="$PROJECT_DIR$/com-register-center/nacos-server/pom.xml" />

@@ -27,6 +27,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="com-api" target="1.8" />
+      <module name="com-common-easyauth" target="1.8" />
       <module name="com-job-center" target="1.8" />
       <module name="com-protocol" target="1.8" />
       <module name="com-tools-provider" target="1.8" />
@@ -43,6 +44,7 @@
       <module name="com-common" options="" />
       <module name="com-common-cache" options="-parameters" />
       <module name="com-common-core" options="-parameters" />
+      <module name="com-common-easyauth" options="-parameters" />
       <module name="com-common-generator" options="-parameters" />
       <module name="com-common-mybatis" options="-parameters" />
       <module name="com-common-sentinel" options="-parameters" />
