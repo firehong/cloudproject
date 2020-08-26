@@ -22,8 +22,9 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * @author lengleng
- * @date 2020-06-23
+ * @Author Macro
+ * @Date 2020/8/26 9:41
+ * @Description
  */
 @ConfigurationPropertiesScan
 @ComponentScan("com.common.cache.redis")

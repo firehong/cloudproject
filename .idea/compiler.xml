@@ -6,23 +6,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="com-user-api" />
+        <module name="com-tools-sms" />
         <module name="com-common-mybatis" />
         <module name="oauth2-server" />
-        <module name="com-common-sentinel" />
         <module name="com-common-swagger" />
         <module name="com-boot-admin" />
-        <module name="com-tools-sms" />
-        <module name="com-common-cache" />
+        <module name="com-tools-api" />
+        <module name="com-common-sentinel" />
         <module name="com-gateway" />
         <module name="auth-server" />
-        <module name="com-user-service" />
+        <module name="com-common-generator" />
+        <module name="com-user-api" />
         <module name="com-tools-mq" />
-        <module name="com-tools-api" />
+        <module name="eureka-server" />
         <module name="com-common-core" />
         <module name="com-tools-oss" />
-        <module name="com-common-generator" />
-        <module name="eureka-server" />
+        <module name="com-common-cache" />
+        <module name="com-user-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
