@@ -20,7 +20,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.ExtendedServletRequestDataBinder;
-
 import javax.servlet.http.HttpServletResponseWrapper;
 import javax.validation.ConstraintViolationException;
 import java.lang.reflect.Method;
@@ -38,18 +37,18 @@ import java.util.Map;
 @Slf4j
 public class ApiAspectContent extends BaseService {
 
-	@Value("${jwt.config.secret}")
+	@Value("${auth.jwt.secret}")
 	private String secret;
 	@Value("${spring.profiles.active}")
 	private String profiles;
 
 	/**
 	 * 拦截contoller层 操作日志
-	 * @param jp
+	 * @param jp com.macro.auth.api.controller
 	 * @return
 	 * @throws Throwable
 	 */
-	@Around("execution(* com.macro.auth.api.controller.*.*(..))")
+	@Around("execution(* com.macro.auth.*.controller.*.*(..))")
 	public Object authDeal(ProceedingJoinPoint jp) throws Throwable{
 		//获取类名
 		String className = jp.getThis().toString();

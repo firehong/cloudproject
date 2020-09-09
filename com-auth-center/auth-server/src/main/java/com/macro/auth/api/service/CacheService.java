@@ -21,9 +21,9 @@ public class CacheService {
 
     @Autowired
     protected RedisUtil redis;
-    @Value("${jwt.config.secret}")
+    @Value("${auth.jwt.secret}")
     private String secret;
-    @Value("${jwt.config.expireTime}")
+    @Value("${auth.jwt.expireTime}")
     private Long expireTime;
 
     /**

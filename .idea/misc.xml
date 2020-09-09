@@ -10,8 +10,11 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/com-api/pom.xml" />
+        <option value="$PROJECT_DIR$/com-auth-center/authentication-server/pom.xml" />
+        <option value="$PROJECT_DIR$/com-auth-center/authorization-server/pom.xml" />
         <option value="$PROJECT_DIR$/com-boot-admin/pom.xml" />
         <option value="$PROJECT_DIR$/com-common-easyauth/pom.xml" />
+        <option value="$PROJECT_DIR$/com-common/com-common-auth/pom.xml" />
         <option value="$PROJECT_DIR$/com-common/com-common-easyauth/pom.xml" />
         <option value="$PROJECT_DIR$/com-job-center/pom.xml" />
         <option value="$PROJECT_DIR$/com-protocol/pom.xml" />

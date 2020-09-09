@@ -3,6 +3,7 @@ package com.macro.user.common.base;
 
 import com.common.cache.lock.service.RedisLockUtil;
 import com.common.cache.redis.service.RedisUtil;
+
 import com.common.generator.entity.mapper.TbUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 

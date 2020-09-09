@@ -25,7 +25,7 @@ public class AuthServiceImpl extends BaseService implements AuthService {
         }
         UserVO userVO = UserVO.builder()
                 .name(tbUser.getName())
-                .uid(tbUser.getId())
+                .uid(tbUser.getId().intValue())
                 .build();
         //缓存
         userVO = cacheService.setUserLoginCache(userVO);

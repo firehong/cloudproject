@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.common.generator.entity.mapper.ClientdetailsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.common.generator.entity.entity.Clientdetails">
+        <id column="appId" property="appId" />
+        <result column="resourceIds" property="resourceIds" />
+        <result column="appSecret" property="appSecret" />
+        <result column="scope" property="scope" />
+        <result column="grantTypes" property="grantTypes" />
+        <result column="redirectUrl" property="redirectUrl" />
+        <result column="authorities" property="authorities" />
+        <result column="access_token_validity" property="accessTokenValidity" />
+        <result column="refresh_token_validity" property="refreshTokenValidity" />
+        <result column="additionalInformation" property="additionalInformation" />
+        <result column="autoApproveScopes" property="autoApproveScopes" />
+    </resultMap>
+
+</mapper>

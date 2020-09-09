@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: oauth2Service
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true   #返回时间戳
+    time-zone: GMT+8
+
+# 日志设置
+logging:
+  level:
+    root: info
+  config: classpath:logback-spring.xml
+
+#配置admin监控内容
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #监控所有
+  endpoint:
+    health:
+      show-details: always
+
+

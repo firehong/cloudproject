@@ -18,15 +18,18 @@
         <module name="com-common-generator" />
         <module name="com-user-api" />
         <module name="com-tools-mq" />
-        <module name="eureka-server" />
         <module name="com-common-core" />
         <module name="com-tools-oss" />
         <module name="com-common-cache" />
         <module name="com-user-service" />
+        <module name="eureka-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="authentication-server" target="1.8" />
+      <module name="authorization-server" target="1.8" />
       <module name="com-api" target="1.8" />
+      <module name="com-common-auth" target="1.8" />
       <module name="com-common-easyauth" target="1.8" />
       <module name="com-job-center" target="1.8" />
       <module name="com-protocol" target="1.8" />
@@ -38,10 +41,13 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="auth-server" options="-parameters" />
+      <module name="authentication-server" options="-parameters" />
+      <module name="authorization-server" options="-parameters" />
       <module name="com-api" options="-parameters" />
       <module name="com-auth-center" options="" />
       <module name="com-boot-admin" options="-parameters" />
       <module name="com-common" options="" />
+      <module name="com-common-auth" options="-parameters" />
       <module name="com-common-cache" options="-parameters" />
       <module name="com-common-core" options="-parameters" />
       <module name="com-common-easyauth" options="-parameters" />

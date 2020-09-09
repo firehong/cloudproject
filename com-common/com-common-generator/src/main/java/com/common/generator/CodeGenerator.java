@@ -50,8 +50,8 @@ public class CodeGenerator {
         dsc.setTypeConvert(new MySqlTypeConvert());
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
-        //dsc.setPassword("");
-        //dsc.setUrl("");
+        dsc.setPassword("WUhong715292834..");
+        dsc.setUrl("jdbc:mysql://132.232.148.214:33699/oauth2?useUnicode=true&characterEncoding=utf8");
         mpg.setDataSource(dsc);
 
         // 包配置
@@ -93,7 +93,7 @@ public class CodeGenerator {
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
         // 表名，多个英文逗号分割 屏蔽则同步所有
-        strategy.setInclude("tb_user");
+        //strategy.setInclude("tb_user");
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true);
