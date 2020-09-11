@@ -17,10 +17,10 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableMacroSwagger2
-@EnableAsync
 @EnableMyBatis
 @EnableRedisServer
 @EnableRedisLockServer
+@EnableAsync
 public class UserApplication{
 
     public static void main(String[] args) {
