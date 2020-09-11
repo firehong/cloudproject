@@ -1,5 +1,6 @@
 package com.common.swagger.config;
 
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import lombok.Data;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -27,6 +28,7 @@ import java.util.List;
  */
 @Configuration
 @EnableSwagger2
+@EnableKnife4j
 @Profile({"dev", "test"})// 设置 dev test 环境开启 prod 环境就关闭了
 @ConditionalOnProperty(name = "swagger.enabled", matchIfMissing = true)
 @ConfigurationProperties(prefix = "swagger")
