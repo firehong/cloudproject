@@ -16,18 +16,23 @@
  *
  */
 
-package com.common.cache;
+package com.common.swagger.annotation;
 
-import org.springframework.context.annotation.ComponentScan;
+import com.common.swagger.config.Swagger2AutoConfiguration;
+import org.springframework.context.annotation.Import;
+
+import java.lang.annotation.*;
 
 /**
  * @Author Macro
- * @Date 2020/8/26 9:41
- * @Description
+ * @Date 2020/9/10 15:28
+ * @Description  swagger2
  */
-@ComponentScan("com.common.cache.redis")
-public class RedisServerAutoConfiguration {
-
-
+@Documented
+@Inherited
+@Target({ ElementType.TYPE })
+@Retention(RetentionPolicy.RUNTIME)
+@Import({ Swagger2AutoConfiguration.class })
+public @interface EnableMacroSwagger2 {
 
 }

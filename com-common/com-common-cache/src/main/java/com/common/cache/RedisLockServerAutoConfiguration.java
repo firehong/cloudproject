@@ -18,7 +18,6 @@
 
 package com.common.cache;
 
-import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
@@ -26,7 +25,6 @@ import org.springframework.context.annotation.ComponentScan;
  * @Date 2020/8/26 9:41
  * @Description
  */
-@ConfigurationPropertiesScan
 @ComponentScan("com.common.cache.lock")
 public class RedisLockServerAutoConfiguration {
 
