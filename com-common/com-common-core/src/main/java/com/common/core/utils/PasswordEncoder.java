@@ -127,4 +127,8 @@ public class PasswordEncoder {
 		return buffer.toString();
 	}
 
+	public static void main(String[] args) throws Exception{
+		System.out.println(createPassword("123","123"));
+	}
+
 }

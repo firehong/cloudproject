@@ -1,6 +1,5 @@
 package com.auth.oauth2;
 
-import com.common.cache.annotation.EnableRedisServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -14,7 +13,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableRedisServer
 @EnableAuthorizationServer
 @EnableResourceServer
 public class Oauth2Application {

@@ -13,7 +13,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-import org.springframework.security.oauth2.provider.error.WebResponseExceptionTranslator;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
@@ -42,9 +41,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Autowired
     DataSource dataSource;
-
-    @Autowired
-    private WebResponseExceptionTranslator webResponseExceptionTranslator;
 
     /**
      * @date 2019/9/25 17:18
@@ -120,8 +116,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .accessTokenConverter(accessTokenConverter())
                 .authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsService).reuseRefreshTokens(true);
-        // 设置异常处理器
-        endpoints.exceptionTranslator(webResponseExceptionTranslator);
         //自定义授权页面处理
         endpoints.pathMapping("/oauth/confirm_access","/custom/confirm_access");
     }

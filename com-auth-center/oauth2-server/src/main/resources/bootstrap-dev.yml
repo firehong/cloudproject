@@ -11,3 +11,4 @@ spring:
         file-extension: yml
         #默认为Public命名空间,可以省略不写  自定义命名空间使用ID值
         namespace: ec56ddb8-7c10-409b-9916-c3842d33602a
+

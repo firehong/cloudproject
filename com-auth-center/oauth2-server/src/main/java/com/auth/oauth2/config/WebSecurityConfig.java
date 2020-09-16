@@ -2,6 +2,7 @@ package com.auth.oauth2.config;
 
 import com.auth.oauth2.service.MyUserDetailsService;
 import com.common.cache.redis.service.RedisUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,8 +12,12 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import javax.annotation.Resource;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.common.core.utils.PasswordEncoder.createPassword;
 
@@ -26,11 +31,12 @@ import static com.common.core.utils.PasswordEncoder.createPassword;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Resource
+    private ObjectMapper objectMapper; // springmvc启动时自动装配json处理类
     @Autowired
     private MyUserDetailsService myUserDetailsService;
-
     @Autowired
-    private RedisUtil redis;
+    private RedisUtil redisUtil;
 
     /**
      * @date 2019/10/8 8:58
@@ -46,18 +52,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             }
             @Override
             public boolean matches(CharSequence charSequence, String s) {
-                // 获取token 验证appid appsecret
-                if(s.contains("$")){
-                    return new BCryptPasswordEncoder().matches(charSequence, s);
-                }
                 //验证用户登录账户密码
                 try {
                     //获取密码盐
-                    String key = redis.get(s)==null ? null : redis.get(s).toString();
+                    String key = redisUtil.get(s)==null ? null : redisUtil.get(s).toString();
                     if(key==null){
                         return false;
                     }
-                    String salt = redis.get(key)==null ? null : redis.get(key).toString();
+                    String salt = redisUtil.get(key)==null ? null : redisUtil.get(key).toString();
                     if(salt==null){
                         return false;
                     }
@@ -105,10 +107,31 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers("/actuator/**").permitAll()
+                .antMatchers("/actuator/**","/oauth/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().permitAll();
+        // 表单登录
+        http.formLogin()
+                // 登录页面
+                .loginPage("/auth/login")
+                // 登录处理url
+                .loginProcessingUrl("/auth/authorize")//登录成功之后的处理
+                .and()
+                .logout()
+                .logoutUrl("/oauth/logout")
+                .logoutSuccessHandler((request,response,authentication) -> {
+                    Map<String,Object> map = new HashMap();
+                    map.put("message","退出成功");
+                    map.put("code",200);
+                    map.put("data",authentication);
+                    response.setContentType("application/json;charset=utf-8");
+                    PrintWriter out = response.getWriter();
+                    out.write(objectMapper.writeValueAsString(map));
+                    out.flush();
+                    out.close();
+                })
+                .deleteCookies("JSESSIONID");//清楚cook键值
     }
 
 
