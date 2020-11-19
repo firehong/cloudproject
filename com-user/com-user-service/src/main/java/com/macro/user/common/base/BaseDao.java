@@ -30,18 +30,18 @@ public class BaseDao extends SqlSessionDaoSupport{
 	public <T> T selectOne(String sqlId, Object obj) {
 		if(!StringUtil.isEmpty(obj))
 		{
-			return (T) getSqlSession().selectOne(sqlId, obj);
+			return getSqlSession().selectOne(sqlId, obj);
 		}
 		else
 		{ 
-			return (T) getSqlSession().selectOne(sqlId);
+			return getSqlSession().selectOne(sqlId);
 		}
 	}
 
 	/**
 	 * 查询对象集合
 	 */
-	public List selectList(String sqlId, Object obj) {
+	public <E> List<E> selectList(String sqlId, Object obj) {
 		if(!StringUtil.isEmpty(obj))
 		{
 			return getSqlSession().selectList(sqlId, obj);
