@@ -4,6 +4,7 @@ package com.tools.oss.controller;
 import com.tools.api.vo.UploadVO;
 import com.tools.oss.service.OssService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,7 +28,7 @@ public class OssController {
      * @Param
      * @Return
      */
-    @PostMapping("uploadFile")
+    @PostMapping(value = "uploadFile",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public UploadVO uploadFile(@RequestParam MultipartFile file, @RequestParam String path) {
         return ossService.uploadFile(file, path);
     }

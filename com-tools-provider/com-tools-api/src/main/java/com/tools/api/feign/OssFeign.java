@@ -4,9 +4,10 @@ package com.tools.api.feign;
 import com.tools.api.feign.fallback.OssFeignClientFallbackFactory;
 import com.tools.api.vo.UploadVO;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -22,8 +23,8 @@ public interface OssFeign {
      * @param
      * @return
      */
-    @RequestMapping(value = "/oss/uploadFile",method = RequestMethod.POST)
-    UploadVO uploadFile(@RequestParam MultipartFile file, @RequestParam String path);
+    @PostMapping(value = "/oss/uploadFile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    UploadVO uploadFile(@RequestPart(name = "file") MultipartFile file, @RequestParam String path);
 
 
 

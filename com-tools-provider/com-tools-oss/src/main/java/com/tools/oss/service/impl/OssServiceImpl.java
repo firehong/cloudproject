@@ -1,6 +1,7 @@
 package com.tools.oss.service.impl;
 
 
+import com.szl.common.core.utils.StringUtil;
 import com.tools.api.vo.UploadVO;
 import com.tools.oss.sdk.Alioos;
 import com.tools.oss.service.OssService;
@@ -25,9 +26,12 @@ public class OssServiceImpl implements OssService {
                 //自定义的文件名称
                 String trueFileName = System.currentTimeMillis() + fileName;
                 //上传文件名
+                if(!StringUtil.isBlank(path)){
+                    path = path.replace("/","");
+                }
                 String newFileName = path + "/" + trueFileName;
                 //上传文件至阿里oss
-                String url = alioos.AlioosUpload(path, file);
+                String url = alioos.AlioosUpload(newFileName, file);
                 return UploadVO.success(url);
             } else {
                 return UploadVO.fail("文件不能为空");
