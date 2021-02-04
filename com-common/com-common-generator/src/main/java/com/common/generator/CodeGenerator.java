@@ -49,9 +49,9 @@ public class CodeGenerator {
         dsc.setDbType(DbType.MYSQL);
         dsc.setTypeConvert(new MySqlTypeConvert());
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("WUhong715292834..");
-        dsc.setUrl("jdbc:mysql://132.232.148.214:33699/oauth2?useUnicode=true&characterEncoding=utf8");
+        dsc.setUsername("");
+        dsc.setPassword("");
+        dsc.setUrl("jdbc:mysql:///oauth2?useUnicode=true&characterEncoding=utf8");
         mpg.setDataSource(dsc);
 
         // 包配置
