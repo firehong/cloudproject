@@ -8,11 +8,11 @@ sentinelServersConfig:
   retryInterval: 1000
   readMode: "SLAVE"
   sentinelAddresses:
-    - "redis://132.232.148.214:26379"
-    - "redis://132.232.148.214:26380"
-    - "redis://132.232.148.214:26381"
-  masterName: "mymaster"
-  password: hongda2019@
+    - "redis://:26379"
+    - "redis://:26380"
+    - "redis://:26381"
+  masterName: ""
+  password: 
   database: 0
 threads: 16
 nettyThreads: 32
